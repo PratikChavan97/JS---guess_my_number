@@ -36,24 +36,27 @@ check.addEventListener('click', function () {
     showAnswer.textContent = randomNumber;
     body.style.backgroundColor = '#60b347';
     showAnswer.style.width = '30rem';
-  } else if (guess > randomNumber) {
+  } else if (guess !== randomNumber) {
     if (score > 1) {
-      message.textContent = '📈 Too high';
+      message.textContent =
+        guess > randomNumber ? '📈 Too high!' : '📉 Too low!';
       score--;
       gameScore.textContent = score;
     } else {
       message.textContent = '💥 You lost the game!';
       gameScore.textContent = 0;
     }
-  } else if (guess < randomNumber) {
-    if (score > 1) {
-      message.textContent = '📉 Too low';
-      score--;
-      gameScore.textContent = score;
-    } else {
-      message.textContent = '💥 You lost the game!';
-      gameScore.textContent = 0;
-    }
+    //   } else if (guess > randomNumber) {
+    //   } else if (guess < randomNumber) {
+    //     if (score > 1) {
+    //       message.textContent = '📉 Too low';
+    //       score--;
+    //       gameScore.textContent = score;
+    //     } else {
+    //       message.textContent = '💥 You lost the game!';
+    //       gameScore.textContent = 0;
+    //     }
+    //
   }
 });
 
